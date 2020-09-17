@@ -6,6 +6,7 @@ export default async (repo) => {
   return new Promise((resolve) => {
     terminal.singleColumnMenu([
       'ES6 Library',
+      'Solidity',
       'Eslint has already been configured',
     ], {}, (err, response) => {
       if (err) {

@@ -5,6 +5,7 @@ import cloneRepo from './commands/cloneRepo';
 import commit from './commands/commit';
 import copyES6Linting from './commands/copyES6Linting';
 import copyLintingWorkflow from './commands/copyLintingWorkflow';
+import copySolidityLinting from './commands/copySolidityLinting';
 import deleteRepo from './commands/deleteRepo';
 import Github from './adapters/Github';
 import lintingMenu from './menus/lintingMenu';
@@ -35,6 +36,20 @@ const es6Linting = async () => {
   return branch;
 };
 
+const solidityLinting = async () => {
+  const branch = `feature/linting-solidity-${Date.now()}`;
+
+  await cloneRepo(repo);
+  await checkoutBranch(branch);
+  await copySolidityLinting();
+  await copyLintingWorkflow();
+  await commit('add linting configuration');
+  await pushBranch(branch);
+  await deleteRepo();
+
+  return branch;
+};
+
 const main = async () => {
   try {
     const { selectedIndex, selectedText } = await lintingMenu(repo);
@@ -43,6 +58,10 @@ const main = async () => {
 
     if (selectedIndex === 0) {
       branch = await es6Linting();
+    }
+
+    if (selectedIndex === 1) {
+      branch = await solidityLinting();
     }
 
     if (branch) {

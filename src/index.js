@@ -5,6 +5,7 @@ import cloneRepo from './commands/cloneRepo';
 import commit from './commands/commit';
 import copyES6Linting from './commands/copyES6Linting';
 import copyLintingWorkflow from './commands/copyLintingWorkflow';
+import copySolidityLinting from './commands/copySolidityLinting';
 import copyTemplates from './commands/copyTemplates';
 import createDevelopmentBranch from './commands/createDevelopmentBranch';
 import deleteRepo from './commands/deleteRepo';
@@ -59,6 +60,11 @@ const main = async () => {
   if (selectedIndex === 0) {
     await copyES6Linting();
     await commit('add ES6 linting configuration');
+  }
+
+  if (selectedIndex === 1) {
+    await copySolidityLinting();
+    await commit('add Solidity linting configuration');
   }
 
   await copyLintingWorkflow();

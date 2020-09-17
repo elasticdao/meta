@@ -3,7 +3,7 @@ import run from '../utils/run';
 export default () => run([
   'cd tmp/repo',
   'mkdir -p .github',
-  'yarn add -D eslint@6.8.0 eslint-config-airbnb-base@14.1.0 eslint-plugin-import@2.20.2',
+  'yarn add -D eslint eslint-config-airbnb-base eslint-plugin-import',
   'rm -v .eslintrc .eslintrc.js',
   'cp -v ../../config/eslint/es6.eslint.js .eslintrc.js',
   'sed -i "s/\\"scripts\\": {/\\"scripts\\": {\\n'
