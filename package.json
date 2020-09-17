@@ -1,0 +1,32 @@
+{
+  "name": "@elasticdao/meta",
+  "version": "1.0.0",
+  "description": "Provides common components and functionality for managing ElasticDAO Github repos.",
+  "repository": "git@github.com:elasticdao/meta.git",
+  "author": "Dan Matthews <dan@cryptobuilders.io>",
+  "license": "MIT",
+  "dependencies": {
+    "@pie-dao/utils": "^1.0.0",
+    "esm": "^3.2.25",
+    "node-fetch": "^2.6.0",
+    "terminal-kit": "^1.35.2"
+  },
+  "scripts": {
+    "branchCreation": "yarn lint && node -r esm src/branchCreation.js",
+    "branchProtection": "yarn lint && node -r esm src/branchProtection.js",
+    "discordWebhook": "yarn lint && node -r esm src/discordWebhook.js",
+    "githubTemplates": "yarn lint && node -r esm src/githubTemplates.js",
+    "lint": "npx eslint src/*.js src/**/*.js",
+    "setupLinting": "yarn lint && node -r esm src/setupLinting.js",
+    "start": "yarn lint && node -r esm src/index.js"
+  },
+  "devDependencies": {
+    "eslint": "6.8.0",
+    "eslint-config-airbnb": "18.1.0",
+    "eslint-config-airbnb-base": "14.1.0",
+    "eslint-plugin-import": "2.20.2",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.19.0",
+    "eslint-plugin-react-hooks": "2.5.1"
+  }
+}
