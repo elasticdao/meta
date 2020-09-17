@@ -8,7 +8,7 @@ export default () => run([
   'cp -v ../../config/solhint.json .solhint.json',
   'cp -v ../../config/eslint/es6.eslint.js .eslintrc.js',
   'sed -i "s/\\"scripts\\": {/\\"scripts\\": {\\n'
-    + '    \\"lint\\": \\"yarn lint:es6 \&\& yarn lint:solidity\\",\\n'
+    + '    \\"lint\\": \\"yarn lint:es6 \\&\\& yarn lint:solidity\\",\\n'
     + '    \\"lint:es6\\": \\"npx eslint **\\/*.js\\",\\n'
     + '    \\"lint:solidity\\": \\"npx solhint **\\/*.sol\\",\\n'
     + '    \\"prerelease\\": \\"yarn lint\\",\\n'
